@@ -1,0 +1,15 @@
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\MilkVRLauncher.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\MilkVRLauncher.pdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\de.heavykick.MilkVRLauncher.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\de.heavykick.MilkVRLauncher-Signed.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\MilkVRLauncher.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\MilkVRLauncher.pdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\android\bin\de.heavykick.MilkVRLauncher.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\res\layout\second.xml
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\res\layout\main.xml
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\res\values\strings.xml
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\res\drawable\icon.png
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\R.cs.flag
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\uploadflags.txt
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\MilkVRLauncher.dll.mdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\MilkVRLauncher.dll.mdb

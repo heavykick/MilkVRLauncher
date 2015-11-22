@@ -1,0 +1,8 @@
+heavykick.SecondActivity, MilkVRLauncher;md5fd40e06f52dc7839c2ba3e218bcc5a18.SecondActivity
+heavykick.SecondActivity, MilkVRLauncher, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5fd40e06f52dc7839c2ba3e218bcc5a18.SecondActivity
+heavykick.SecondActivity;md5fd40e06f52dc7839c2ba3e218bcc5a18.SecondActivity
+heavykick.SecondActivity;md5fd40e06f52dc7839c2ba3e218bcc5a18.SecondActivity
+heavykick.MainActivity, MilkVRLauncher;md5fd40e06f52dc7839c2ba3e218bcc5a18.MainActivity
+heavykick.MainActivity, MilkVRLauncher, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5fd40e06f52dc7839c2ba3e218bcc5a18.MainActivity
+heavykick.MainActivity;md5fd40e06f52dc7839c2ba3e218bcc5a18.MainActivity
+heavykick.MainActivity;md5fd40e06f52dc7839c2ba3e218bcc5a18.MainActivity

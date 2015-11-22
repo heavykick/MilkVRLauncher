@@ -1,0 +1,15 @@
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\Debug\App1.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\Debug\App1.pdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\App1.csprojResolveAssemblyReference.cache
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\App1.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\App1.pdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\res\layout\main.xml
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\res\values\strings.xml
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\res\drawable\icon.png
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\R.cs.flag
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\uploadflags.txt
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\Debug\heavykick.gearVRLauncher.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\Debug\heavykick.gearVRLauncher-Signed.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\android\bin\heavykick.gearVRLauncher.apk
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\App1.dll.mdb
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\bin\Debug\App1.dll.mdb

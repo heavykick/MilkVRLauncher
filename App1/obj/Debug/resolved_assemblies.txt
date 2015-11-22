@@ -1,0 +1,9 @@
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\MilkVRLauncher.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\Mono.Android.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\mscorlib.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.Core.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.Xml.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.Xml.Linq.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.Runtime.Serialization.dll
+c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Debug\assemblies\System.ServiceModel.Internals.dll
