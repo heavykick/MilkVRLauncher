@@ -1,8 +1,0 @@
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\MilkVRLauncher.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\Mono.Android.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\mscorlib.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\System.Core.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\System.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\System.Xml.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\System.Runtime.Serialization.dll
-c:\users\alain\documents\visual studio 2015\Projects\App1\App1\obj\Release\android\assets\System.ServiceModel.Internals.dll

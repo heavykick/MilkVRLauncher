@@ -73,7 +73,7 @@ namespace heavykick
             };
 
 
-            Url = Intent.DataString;
+            Url = CheckForEmby(Intent.DataString);
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
             //LinkPreview.Text = convertMilkVRSideloadURL(Url, "");
 
@@ -139,7 +139,8 @@ namespace heavykick
         protected void ExecUri(string aURI)
         {
             Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(aURI));
-            intent.SetData(Android.Net.Uri.Parse(aURI));
+            //intent.SetData(Android.Net.Uri.Parse(aURI));
+            intent.PutExtra("dummy", "dummy");
             //intent.SetDataAndType(Android.Net.Uri.Parse("http://test.mp4"), "video/mp4");
             StartActivity(intent);
         }
@@ -147,6 +148,21 @@ namespace heavykick
         {
             ClipboardManager clipboard = (ClipboardManager)GetSystemService("CLIPBOARD_SERVICE");
             clipboard.Text = aText;
+        }
+        protected string CheckForEmby(string aUrl)
+        {
+            if (aUrl.IndexOf(@"/web/itemdetails.html?id=") >= 0)
+            {
+                string _ID = aUrl.Substring(aUrl.IndexOf("=") + 1);
+                string serverAdress = aUrl.Substring(0, aUrl.IndexOf("/web"));
+
+                return serverAdress + "/videos/" + _ID + "/stream.mp4";
+            }
+            else
+            {
+                return aUrl;
+            };
+
         }
     }
 }
