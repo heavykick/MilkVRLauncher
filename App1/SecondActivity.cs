@@ -21,9 +21,9 @@ namespace heavykick
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataScheme = "https")]
-    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataScheme="http", DataPort = "8096")]
+//    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+//        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+//        DataScheme="http",  DataHost = "alain-pc", DataPort = "8096")]  //DataPathPrefix = @"/web/itemdetails.html?id=",
     public class SecondActivity : Activity
     {
         private string FilePath = "/mnt/sdcard/MilkVR/";
@@ -156,7 +156,7 @@ namespace heavykick
                 string _ID = aUrl.Substring(aUrl.IndexOf("=") + 1);
                 string serverAdress = aUrl.Substring(0, aUrl.IndexOf("/web"));
 
-                return serverAdress + "/videos/" + _ID + "/stream.mp4";
+                return serverAdress + "/videos/" + _ID + "/stream.mp4?static=true";
             }
             else
             {
