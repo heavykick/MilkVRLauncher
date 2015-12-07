@@ -84,8 +84,7 @@ namespace heavykick
                 { "Top Bottom stereoscopic 3D 360 sphere with no bottom", "sib3d" }, 
                 { "180 Planetarium a.k.a full dome","_planetarium" },
                 { "V360 camera", "_v360"}
-            };
-
+            
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
