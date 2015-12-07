@@ -16,37 +16,45 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mp4",
+        DataHost = "*",
         DataScheme ="http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mp4",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mp4",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mp4",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        DataHost = "*",
         DataScheme = "https")]
     public class SecondActivity : Activity
     {
@@ -158,7 +166,7 @@ namespace heavykick
             string _videoType = "";
             if (aFormat != "")
             { _videoType = @"&video_type=" + aFormat; };
-            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A") + _videoType;
+            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A").Replace("?","%3F").Replace("=","%3D").Replace("&","%26") + _videoType;
         }
         protected void ExecUri(string aURI)
         {
