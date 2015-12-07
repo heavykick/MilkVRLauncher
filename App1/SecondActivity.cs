@@ -21,9 +21,33 @@ namespace heavykick
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataScheme = "https")]
-//    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-//        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-//        DataScheme="http",  DataHost = "alain-pc", DataPort = "8096")]  //DataPathPrefix = @"/web/itemdetails.html?id=",
+
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataMimeType = "application/mp4",
+        DataScheme ="http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataMimeType = "application/mp4",
+        DataScheme = "https")]
+
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\.mp4",
+        DataScheme = "http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\.mp4",
+        DataScheme = "https")]
+
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataScheme = "http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataScheme = "https")]
     public class SecondActivity : Activity
     {
         private string FilePath = "/mnt/sdcard/MilkVR/";
