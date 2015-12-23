@@ -16,19 +16,23 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "video/*",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mp4",
+        DataHost = "*",
         DataScheme ="http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mp4",
+        DataHost = "*",
         DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
@@ -42,10 +46,12 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mp4",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mp4",
+        DataHost = "*",
         DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
@@ -58,11 +64,13 @@ namespace heavykick
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\/web\\/itemdetails\\.html\\?id=",
+        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        DataHost = "*",
         DataScheme = "https")]
     public class SecondActivity : Activity
     {
@@ -92,8 +100,7 @@ namespace heavykick
                 { "Top Bottom stereoscopic 3D 360 sphere with no bottom", "sib3d" }, 
                 { "180 Planetarium a.k.a full dome","_planetarium" },
                 { "V360 camera", "_v360"}
-            };
-
+            
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -175,7 +182,7 @@ namespace heavykick
             string _videoType = "";
             if (aFormat != "")
             { _videoType = @"&video_type=" + aFormat; };
-            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A") + _videoType;
+            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A").Replace("?","%3F").Replace("=","%3D").Replace("&","%26") + _videoType;
         }
         protected void ExecUri(string aURI)
         {
