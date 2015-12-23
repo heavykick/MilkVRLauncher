@@ -37,10 +37,12 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mkv",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mkv",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
@@ -56,10 +58,12 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mkv",
+        DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mkv",
+        DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
