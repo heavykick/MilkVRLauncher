@@ -30,6 +30,14 @@ namespace heavykick
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataMimeType = "application/mp4",
         DataScheme = "https")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataMimeType = "application/mkv",
+        DataScheme = "http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataMimeType = "application/mkv",
+        DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
@@ -38,6 +46,14 @@ namespace heavykick
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataPathPattern = ".*\\.mp4",
+        DataScheme = "https")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\.mkv",
+        DataScheme = "http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataPathPattern = ".*\\.mkv",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
@@ -91,15 +107,12 @@ namespace heavykick
             button1.Click += delegate
             {
                 CreateMVRL(FilePath + LinkPreview.Text + ".mvrl", Url, LaunchExtensions[getSelectedElement(MilkVROptions),1]);
-                //StartMilkVR();
-                //LinkPreview.Text = convertMilkVRSideloadURL(Url, LaunchExtensions[getSelectedElement(MilkVROptions), 1]);
                 ExecUri(convertMilkVRSideloadURL(Url, LaunchExtensions[getSelectedElement(MilkVROptions), 1]));
             };
 
 
             Url = CheckForEmby(Intent.DataString);
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
-            //LinkPreview.Text = convertMilkVRSideloadURL(Url, "");
 
             InitRadioButtons(LaunchExtensions);
         }
@@ -116,6 +129,10 @@ namespace heavykick
                 RadioButton _button = new RadioButton(this);
                 _button.Text =_curS;
                 _button.Tag = i;
+
+                //Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(Resource.Drawable.Icon);
+                //_d.SetBounds(0, 0, 20, 20);
+                //_button.SetCompoundDrawables(null, null, _d, null);
                 MilkVROptions.AddView(_button);
             };
         }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectView>ShowAllFiles</ProjectView>
-    <SelectedDevice>Samsung SM-N910F</SelectedDevice>
+    <ProjectView>ProjectFiles</ProjectView>
+    <SelectedDevice>test</SelectedDevice>
     <AndroidDesignerPreferredDevice>7" WSVGA %28Tablet%29</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.DeviceDefault.Light</AndroidDesignerPreferredTheme>
   </PropertyGroup>
