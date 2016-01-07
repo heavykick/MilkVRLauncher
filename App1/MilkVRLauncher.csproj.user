@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
-    <SelectedDevice>test</SelectedDevice>
+    <SelectedDevice>Samsung SM-G928F</SelectedDevice>
     <AndroidDesignerPreferredDevice>7" WSVGA %28Tablet%29</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.DeviceDefault.Light</AndroidDesignerPreferredTheme>
   </PropertyGroup>

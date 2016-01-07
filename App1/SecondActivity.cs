@@ -97,14 +97,17 @@ namespace heavykick
                 { "Left right stereoscopic 360", "3dh" },
                 { "Top bottom stereoscopic 3D 180", "180x180_3dv" },
                 { "Left right stereoscopic 3D 180", "180x180_3dh" },
-                { "Top bottom stereoscopic 3D 180x160", "180x160_3dv" }, 
+                { "LR stereo 3D 180 squished", "180x180_squished_3dh" },
+                { "Top bottom stereoscopic 3D 180x160", "180x160_3dv" },
                 { "Two monoscopic 180 hemispheres", "180hemispheres" },
-                { "Top bottom stereoscopic 3D sliced off cylindrical 2.25:1 ratio", "cylinder_slice_2x25_3dv" }, 
-                { "Top bottom stereoscopic 3D sliced off cylindrical 16:9", "cylinder_slice_16x9_3dv" }, 
-                { "Top Bottom stereoscopic 3D 360 sphere with no bottom", "sib3d" }, 
+                { "Top bottom stereoscopic 3D sliced off cylindrical 2.25:1 ratio", "cylinder_slice_2x25_3dv" },
+                { "Top bottom stereoscopic 3D sliced off cylindrical 16:9", "cylinder_slice_16x9_3dv" },
+                { "Top Bottom stereoscopic 3D 360 sphere with no bottom", "sib3d" },
                 { "180 Planetarium a.k.a full dome","_planetarium" },
-                { "V360 camera", "_v360"}
-            
+                { "V360 camera", "_v360"},
+                { "RTXP 360 cylindrical", "_rtxp"}
+            };
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -125,17 +128,18 @@ namespace heavykick
             Url = CheckForEmby(Intent.DataString);
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
 
-            InitRadioButtons(LaunchExtensions);
+            InitRadioButtons(LaunchExtensions, Url);
         }
 
-        protected void InitRadioButtons(string[,] aLaunchExtensions)
+        protected void InitRadioButtons(string[,] aLaunchExtensions, string aUrl)
         {
 
             MilkVROptions.RemoveAllViews();
 
             for(int i = 0; i < aLaunchExtensions.GetLength(0); i++)
             {
-                string _curS = aLaunchExtensions[i,0];
+                string _curS = aLaunchExtensions[i, 0];
+                string _curParam = aLaunchExtensions[i, 1];
 
                 RadioButton _button = new RadioButton(this);
                 _button.Text =_curS;
@@ -145,6 +149,11 @@ namespace heavykick
                 //_d.SetBounds(0, 0, 20, 20);
                 //_button.SetCompoundDrawables(null, null, _d, null);
                 MilkVROptions.AddView(_button);
+
+                if (aUrl.IndexOf(_curParam) >= 0)
+                {                    
+                    MilkVROptions.Check(i);
+                }
             };
         }
         protected void StartMilkVR()
