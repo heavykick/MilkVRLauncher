@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
     <SelectedDevice>Samsung SM-G928F</SelectedDevice>
-    <AndroidDesignerPreferredDevice>7" WSVGA %28Tablet%29</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>Galaxy Nexus</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.DeviceDefault.Light</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

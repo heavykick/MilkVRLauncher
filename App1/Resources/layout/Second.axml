@@ -7,6 +7,12 @@
     android:minHeight="25px"
     android:verticalScrollbarPosition="defaultPosition"
     android:scrollbars="vertical">
+    <TextView
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblUrl" />
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="57.0dp"

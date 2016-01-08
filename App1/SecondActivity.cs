@@ -84,6 +84,7 @@ namespace heavykick
         public RadioGroup MilkVROptions = null;
         public Button button1 = null;
         public AutoCompleteTextView LinkPreview = null;
+        public TextView lblUrl = null;
 
         private string[,] LaunchExtensions =
              {
@@ -117,6 +118,8 @@ namespace heavykick
             LinkPreview = FindViewById<AutoCompleteTextView>(Resource.Id.LinkPreview);
             LinkPreview.Text = "MilkVRLauncher";
 
+            lblUrl = FindViewById<TextView>(Resource.Id.lblUrl);
+
             button1 = FindViewById<Button>(Resource.Id.button1);
             button1.Click += delegate
             {
@@ -127,6 +130,7 @@ namespace heavykick
 
             Url = CheckForEmby(Intent.DataString);
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
+            lblUrl.Text = Url;
 
             InitRadioButtons(LaunchExtensions, Url);
         }
@@ -136,7 +140,7 @@ namespace heavykick
 
             MilkVROptions.RemoveAllViews();
                         
-            SortedList<int, int> _myList = new SortedList<int, int>();
+            SortedList<int, RadioButton> _myList = new SortedList<int, RadioButton>();
 
             for (int i = 0; i < aLaunchExtensions.GetLength(0); i++)
             {
@@ -144,7 +148,7 @@ namespace heavykick
                 string _curParam = aLaunchExtensions[i, 1];
 
                 RadioButton _button = new RadioButton(this);
-                _button.Text = _curS;
+                _button.Text = string.Format("{0} [{1}]",_curS,_curParam);
                 _button.Tag = i;
 
                 string _resourceName = "ic_" + _curParam;
@@ -156,21 +160,21 @@ namespace heavykick
                 if (_resourceID > 0)
                 {
                     Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
-                    _d.SetBounds(0, 0, 20, 20);
-                    _button.SetCompoundDrawables(null, null, _d, null);
+                    _d.SetBounds(0, 0, 120, 120);
+                    _button.SetCompoundDrawables(_d, null, null, null);
                 };
                 MilkVROptions.AddView(_button);
 
                 if ((aUrl.IndexOf(_curParam) >= 0) && (_curParam != ""))
                 {
-                    _myList.Add(_curParam.Length, i);                    
+                    _myList.Add(_curParam.Length, _button);                    
                 };
             };   
             
             if (_myList.Count > 0)
             {
-                int _id = _myList.Values[_myList.Count() - 1];
-                MilkVROptions.Check(_id);
+                RadioButton _button = _myList.Values[_myList.Count() - 1];
+                MilkVROptions.Check(_button.Id);
             };
             
         }
