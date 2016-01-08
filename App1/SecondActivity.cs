@@ -144,27 +144,33 @@ namespace heavykick
                 string _curParam = aLaunchExtensions[i, 1];
 
                 RadioButton _button = new RadioButton(this);
-                _button.Text =_curS;
+                _button.Text = _curS;
                 _button.Tag = i;
 
                 string _resourceName = "ic_" + _curParam;
-                if (_curParam == "ic_")
-                { _curParam = "ic_nothing.png"; };
-                
-                Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(Resources.GetIdentifier(_resourceName, "drawable", this.PackageName));
-                _d.SetBounds(0, 0, 20, 20);
-                _button.SetCompoundDrawables(null, null, _d, null);
+                if (_resourceName == "ic_")
+                { _resourceName = "ic_nothing"; };
+
+                // int _resourceID = Resources.GetIdentifier(_resourceName, "drawable", this.PackageName);
+                var _resourceID = (int)typeof(Resource.Drawable).GetField(_resourceName).GetValue(null);
+                if (_resourceID > 0)
+                {
+                    Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
+                    _d.SetBounds(0, 0, 20, 20);
+                    _button.SetCompoundDrawables(null, null, _d, null);
+                };
                 MilkVROptions.AddView(_button);
 
-                if (aUrl.IndexOf(_curParam) >= 0)
+                if ((aUrl.IndexOf(_curParam) >= 0) && (_curParam != ""))
                 {
                     _myList.Add(_curParam.Length, i);                    
                 };
             };   
             
             if (_myList.Count > 0)
-            {                 
-                 MilkVROptions.Check(_myList.Last().Value);
+            {
+                int _id = _myList.Values[_myList.Count() - 1];
+                MilkVROptions.Check(_id);
             };
             
         }
