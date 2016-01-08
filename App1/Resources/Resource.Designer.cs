@@ -45,7 +45,64 @@ namespace heavykick
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_180hemispheres = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int ic_180x101 = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int ic_180x160_3dv = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int ic_180x180 = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int ic_180x180_3dh = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int ic_180x180_3dv = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int ic_180x180_squished_3dh = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int ic_3dh = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int ic_3dv = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int ic__2dp = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int ic__3dph = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int ic__3dpv = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int ic__planetarium = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int ic__rtxp = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int ic__v360 = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int ic_cylinder_slice_16x9_3dv = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int ic_cylinder_slice_2x25_3dv = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int ic_nothing = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int ic_sib3d = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int Icon = 2130837523;
 			
 			static Drawable()
 			{

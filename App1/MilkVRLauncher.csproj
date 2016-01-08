@@ -101,25 +101,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\drawable\Symbols\180hemispheres.png" />
-    <Content Include="Resources\drawable\Symbols\180x101.png" />
-    <Content Include="Resources\drawable\Symbols\180x160_3dv.png" />
-    <Content Include="Resources\drawable\Symbols\180x180.png" />
-    <Content Include="Resources\drawable\Symbols\180x180_3dh.png" />
-    <Content Include="Resources\drawable\Symbols\180x180_3dv.png" />
-    <Content Include="Resources\drawable\Symbols\180x180_squished_3dh.png" />
-    <Content Include="Resources\drawable\Symbols\3dh.png" />
-    <Content Include="Resources\drawable\Symbols\3dv.png" />
-    <Content Include="Resources\drawable\Symbols\cylinder_slice_16x9_3dv.png" />
-    <Content Include="Resources\drawable\Symbols\cylinder_slice_2x25_3dv.png" />
-    <Content Include="Resources\drawable\Symbols\nothing.png" />
-    <Content Include="Resources\drawable\Symbols\sib3d.png" />
-    <Content Include="Resources\drawable\Symbols\_2dp.png" />
-    <Content Include="Resources\drawable\Symbols\_3dph.png" />
-    <Content Include="Resources\drawable\Symbols\_3dpv.png" />
-    <Content Include="Resources\drawable\Symbols\_planetarium.png" />
-    <Content Include="Resources\drawable\Symbols\_rtxp.png" />
-    <Content Include="Resources\drawable\Symbols\_v360.png" />
+    <AndroidResource Include="Resources\drawable\ic_180hemispheres.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x101.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x160_3dv.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x180.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x180_3dh.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x180_3dv.png" />
+    <AndroidResource Include="Resources\drawable\ic_180x180_squished_3dh.png" />
+    <AndroidResource Include="Resources\drawable\ic_3dh.png" />
+    <AndroidResource Include="Resources\drawable\ic_3dv.png" />
+    <AndroidResource Include="Resources\drawable\ic_cylinder_slice_16x9_3dv.png" />
+    <AndroidResource Include="Resources\drawable\ic_cylinder_slice_2x25_3dv.png" />
+    <AndroidResource Include="Resources\drawable\ic_nothing.png" />
+    <AndroidResource Include="Resources\drawable\ic_sib3d.png" />
+    <AndroidResource Include="Resources\drawable\ic__2dp.png" />
+    <AndroidResource Include="Resources\drawable\ic__3dph.png" />
+    <AndroidResource Include="Resources\drawable\ic__3dpv.png" />
+    <AndroidResource Include="Resources\drawable\ic__planetarium.png" />
+    <AndroidResource Include="Resources\drawable\ic__rtxp.png" />
+    <AndroidResource Include="Resources\drawable\ic__v360.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -135,8 +135,10 @@ namespace heavykick
         {
 
             MilkVROptions.RemoveAllViews();
+                        
+            SortedList<int, int> _myList = new SortedList<int, int>();
 
-            for(int i = 0; i < aLaunchExtensions.GetLength(0); i++)
+            for (int i = 0; i < aLaunchExtensions.GetLength(0); i++)
             {
                 string _curS = aLaunchExtensions[i, 0];
                 string _curParam = aLaunchExtensions[i, 1];
@@ -145,16 +147,26 @@ namespace heavykick
                 _button.Text =_curS;
                 _button.Tag = i;
 
-                //Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(Resource.Drawable.Icon);
-                //_d.SetBounds(0, 0, 20, 20);
-                //_button.SetCompoundDrawables(null, null, _d, null);
+                string _resourceName = "ic_" + _curParam;
+                if (_curParam == "ic_")
+                { _curParam = "ic_nothing.png"; };
+                
+                Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(Resources.GetIdentifier(_resourceName, "drawable", this.PackageName));
+                _d.SetBounds(0, 0, 20, 20);
+                _button.SetCompoundDrawables(null, null, _d, null);
                 MilkVROptions.AddView(_button);
 
                 if (aUrl.IndexOf(_curParam) >= 0)
-                {                    
-                    MilkVROptions.Check(i);
-                }
+                {
+                    _myList.Add(_curParam.Length, i);                    
+                };
+            };   
+            
+            if (_myList.Count > 0)
+            {                 
+                 MilkVROptions.Check(_myList.Last().Value);
             };
+            
         }
         protected void StartMilkVR()
         {
