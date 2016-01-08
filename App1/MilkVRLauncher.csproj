@@ -100,6 +100,27 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\drawable\Symbols\180hemispheres.png" />
+    <Content Include="Resources\drawable\Symbols\180x101.png" />
+    <Content Include="Resources\drawable\Symbols\180x160_3dv.png" />
+    <Content Include="Resources\drawable\Symbols\180x180.png" />
+    <Content Include="Resources\drawable\Symbols\180x180_3dh.png" />
+    <Content Include="Resources\drawable\Symbols\180x180_3dv.png" />
+    <Content Include="Resources\drawable\Symbols\180x180_squished_3dh.png" />
+    <Content Include="Resources\drawable\Symbols\3dh.png" />
+    <Content Include="Resources\drawable\Symbols\3dv.png" />
+    <Content Include="Resources\drawable\Symbols\cylinder_slice_16x9_3dv.png" />
+    <Content Include="Resources\drawable\Symbols\cylinder_slice_2x25_3dv.png" />
+    <Content Include="Resources\drawable\Symbols\nothing.png" />
+    <Content Include="Resources\drawable\Symbols\sib3d.png" />
+    <Content Include="Resources\drawable\Symbols\_2dp.png" />
+    <Content Include="Resources\drawable\Symbols\_3dph.png" />
+    <Content Include="Resources\drawable\Symbols\_3dpv.png" />
+    <Content Include="Resources\drawable\Symbols\_planetarium.png" />
+    <Content Include="Resources\drawable\Symbols\_rtxp.png" />
+    <Content Include="Resources\drawable\Symbols\_v360.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
