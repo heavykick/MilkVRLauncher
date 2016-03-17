@@ -3,4 +3,5 @@
   <string name="ApplicationName">MilkVR Launcher</string>
   <string name="ButtonStartCaption">Create Link-File in MilkVR"</string>
   <string name="TestLaunch">Open Link</string>
+  <string name="AudioFormat">Audio</string>
 </resources>

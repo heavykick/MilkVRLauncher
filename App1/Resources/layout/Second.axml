@@ -28,32 +28,48 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/scrollView1"
         android:fillViewport="true">
-        <RadioGroup
+        <LinearLayout
+            android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/MilkVROptions"
-            android:overScrollMode="always">
-            <RadioButton
-                android:layout_width="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:showDividers="none">
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/MilkVROptions"
+                android:overScrollMode="always">
+                <RadioButton
+                    android:text="RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton1" />
+            </RadioGroup>
+            <TextView
+                android:text="Audio"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/lblUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="RadioButton"
-                android:id="@+id/radioButton1" />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:id="@+id/radioButton2" />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:id="@+id/radioButton3" />
-        </RadioGroup>
+                android:id="@+id/AudioOption">
+                <RadioButton
+                    android:text="RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton2" />
+            </RadioGroup>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

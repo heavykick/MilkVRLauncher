@@ -12,68 +12,73 @@ using Android.Widget;
 
 namespace heavykick
 {
-    [Activity]
+    [Activity(Label = "MilkVRLauncher")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] {Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataHost = "*",
-        DataScheme = "https")]
+        DataScheme = "http")]
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryDefault },
+        DataMimeType = "video/*",
+        DataHost = "*",
+        DataScheme = "file")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "application/mp4",
         DataHost = "*",
         DataScheme ="http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "application/mp4",
         DataHost = "*",
         DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "application/mkv",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "application/mkv",
         DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\.mp4",
+        DataPathPattern = @".*\\.mp4",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\.mp4",
+        DataPathPattern = @".*\\.mp4",
         DataHost = "*",
         DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\.mkv",
+        DataPathPattern = @".*\\.mkv",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*\\.mkv",
+        DataPathPattern = @".*\\.mkv",
         DataHost = "*",
         DataScheme = "https")]
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        Categories = new[] { Intent.CategoryDefault },
+        DataPathPattern = @".*/web/itemdetails\\.html\\?id=.*",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
-        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = ".*/web/itemdetails\\.html\\?id=.*",
+        Categories = new[] { Intent.CategoryDefault },
+        DataPathPattern = @".*/web/itemdetails\\.html\\?id=.*",
         DataHost = "*",
         DataScheme = "https")]
     public class SecondActivity : Activity
@@ -85,6 +90,7 @@ namespace heavykick
         public Button button1 = null;
         public AutoCompleteTextView LinkPreview = null;
         public TextView lblUrl = null;
+        public RadioGroup AudioOptions = null;
 
         private string[,] LaunchExtensions =
              {
@@ -109,12 +115,21 @@ namespace heavykick
                 { "RTXP 360 cylindrical", "_rtxp"}
             };
 
+        private string[,] AudioFormats =
+            {
+                {"mono and stereo", "" },
+                {"5.1 spatial", "_5.1" },
+                {"Quadraphonic", "quadraphonic" },
+                {"Binaural", "_binaural" }
+            };
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Second);
 
             MilkVROptions = FindViewById<RadioGroup>(Resource.Id.MilkVROptions);
+            AudioOptions = FindViewById<RadioGroup>(Resource.Id.AudioOption);
             LinkPreview = FindViewById<AutoCompleteTextView>(Resource.Id.LinkPreview);
             LinkPreview.Text = "MilkVRLauncher";
 
@@ -132,13 +147,14 @@ namespace heavykick
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
             lblUrl.Text = Url;
 
-            InitRadioButtons(LaunchExtensions, Url);
+            InitRadioButtons(LaunchExtensions, Url, MilkVROptions);
+            InitRadioButtons(AudioFormats, Url, AudioOptions);
         }
 
-        protected void InitRadioButtons(string[,] aLaunchExtensions, string aUrl)
+        protected void InitRadioButtons(string[,] aLaunchExtensions, string aUrl, RadioGroup aRadioGroup)
         {
 
-            MilkVROptions.RemoveAllViews();
+            aRadioGroup.RemoveAllViews();
                         
             SortedList<int, RadioButton> _myList = new SortedList<int, RadioButton>();
 
@@ -156,14 +172,18 @@ namespace heavykick
                 { _resourceName = "ic_nothing"; };
 
                 // int _resourceID = Resources.GetIdentifier(_resourceName, "drawable", this.PackageName);
-                var _resourceID = (int)typeof(Resource.Drawable).GetField(_resourceName).GetValue(null);
-                if (_resourceID > 0)
+                try
                 {
-                    Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
-                    _d.SetBounds(0, 0, 120, 120);
-                    _button.SetCompoundDrawables(_d, null, null, null);
-                };
-                MilkVROptions.AddView(_button);
+                    var _resourceID = (int)typeof(Resource.Drawable).GetField(_resourceName).GetValue(null);
+                    if (_resourceID > 0)
+                    {
+                        Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
+                        _d.SetBounds(0, 0, 120, 120);
+                        _button.SetCompoundDrawables(_d, null, null, null);
+                    };
+                }
+                catch { };
+                aRadioGroup.AddView(_button);
 
                 if ((aUrl.IndexOf(_curParam) >= 0) && (_curParam != ""))
                 {
@@ -174,7 +194,7 @@ namespace heavykick
             if (_myList.Count > 0)
             {
                 RadioButton _button = _myList.Values[_myList.Count() - 1];
-                MilkVROptions.Check(_button.Id);
+                aRadioGroup.Check(_button.Id);
             };
             
         }
@@ -185,21 +205,24 @@ namespace heavykick
         }
         protected void CreateMVRL(string aFileName, string aUrl, string aFormat)
         {
-            if (! System.IO.Directory.Exists("/mnt/sdcard/"))
-            {
-                System.IO.Directory.CreateDirectory("/mnt/sdcard/");
+            try {
+                if (!System.IO.Directory.Exists(FilePath))
+                {
+                    System.IO.Directory.CreateDirectory(FilePath);
+                }
+
+                if (System.IO.File.Exists(aFileName))
+                {
+                    System.IO.File.Delete(aFileName);
+                }
+
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(aFileName, false);
+                writer.WriteLine(aUrl);
+                writer.WriteLine(aFormat);
+
+                writer.Close();
             }
-
-            if (System.IO.File.Exists(aFileName))
-            {
-                System.IO.File.Delete(aFileName);
-            }
-
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(aFileName, false);
-            writer.WriteLine(aUrl);
-            writer.WriteLine(aFormat);
-
-            writer.Close();
+            catch { };
         }
         protected int getSelectedElement(RadioGroup aRadioGroup)
         {
