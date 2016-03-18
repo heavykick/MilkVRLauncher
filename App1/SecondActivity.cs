@@ -138,8 +138,11 @@ namespace heavykick
             button1 = FindViewById<Button>(Resource.Id.button1);
             button1.Click += delegate
             {
-                CreateMVRL(FilePath + LinkPreview.Text + ".mvrl", Url, LaunchExtensions[getSelectedElement(MilkVROptions),1]);
-                ExecUri(convertMilkVRSideloadURL(Url, LaunchExtensions[getSelectedElement(MilkVROptions), 1]));
+                string VideoFormat = LaunchExtensions[getSelectedElement(MilkVROptions), 1];
+                string AudioFormat = AudioFormats[getSelectedElement(AudioOptions), 1];
+
+                CreateMVRL(FilePath + LinkPreview.Text + ".mvrl", Url, VideoFormat, AudioFormat);
+                ExecUri(convertMilkVRSideloadURL(Url, VideoFormat, AudioFormat));
             };
 
 
@@ -147,11 +150,11 @@ namespace heavykick
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
             lblUrl.Text = Url;
 
-            InitRadioButtons(LaunchExtensions, Url, MilkVROptions);
-            InitRadioButtons(AudioFormats, Url, AudioOptions);
+            InitRadioButtons(LaunchExtensions, Url,"ic_", MilkVROptions);
+            InitRadioButtons(AudioFormats, Url,"", AudioOptions);
         }
 
-        protected void InitRadioButtons(string[,] aLaunchExtensions, string aUrl, RadioGroup aRadioGroup)
+        protected void InitRadioButtons(string[,] aLaunchExtensions, string aUrl, string aResourceID, RadioGroup aRadioGroup)
         {
 
             aRadioGroup.RemoveAllViews();
@@ -167,22 +170,25 @@ namespace heavykick
                 _button.Text = string.Format("{0} [{1}]",_curS,_curParam);
                 _button.Tag = i;
 
-                string _resourceName = "ic_" + _curParam;
-                if (_resourceName == "ic_")
-                { _resourceName = "ic_nothing"; };
+                string _resourceName = aResourceID + _curParam;
+                if (_resourceName == aResourceID)
+                { _resourceName = aResourceID+"nothing"; };
 
                 // int _resourceID = Resources.GetIdentifier(_resourceName, "drawable", this.PackageName);
-                try
+                if (_resourceName != "nothing")
                 {
-                    var _resourceID = (int)typeof(Resource.Drawable).GetField(_resourceName).GetValue(null);
-                    if (_resourceID > 0)
+                    try
                     {
-                        Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
-                        _d.SetBounds(0, 0, 120, 120);
-                        _button.SetCompoundDrawables(_d, null, null, null);
-                    };
-                }
-                catch { };
+                        var _resourceID = (int)typeof(Resource.Drawable).GetField(_resourceName).GetValue(null);
+                        if (_resourceID > 0)
+                        {
+                            Android.Graphics.Drawables.Drawable _d = Resources.GetDrawable(_resourceID);
+                            _d.SetBounds(0, 0, 120, 120);
+                            _button.SetCompoundDrawables(_d, null, null, null);
+                        };
+                    }
+                    catch { };
+                };
                 aRadioGroup.AddView(_button);
 
                 if ((aUrl.IndexOf(_curParam) >= 0) && (_curParam != ""))
@@ -203,7 +209,7 @@ namespace heavykick
             Intent launchMilk = PackageManager.GetLaunchIntentForPackage("com.samsung.vrvideo");
             StartActivity(launchMilk);
         }
-        protected void CreateMVRL(string aFileName, string aUrl, string aFormat)
+        protected void CreateMVRL(string aFileName, string aUrl, string aFormat, string aAudioFormat)
         {
             try {
                 if (!System.IO.Directory.Exists(FilePath))
@@ -219,6 +225,10 @@ namespace heavykick
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(aFileName, false);
                 writer.WriteLine(aUrl);
                 writer.WriteLine(aFormat);
+                if(aAudioFormat!="")
+                {
+                    writer.WriteLine(aAudioFormat);
+                };
 
                 writer.Close();
             }
@@ -234,13 +244,19 @@ namespace heavykick
             }
             else { return 0; };
         }
-        protected string convertMilkVRSideloadURL(string aURL, string aFormat)
+        protected string convertMilkVRSideloadURL(string aURL, string aFormat, string aAudioformat)
         {
             // [milkvr://sideload/?url=https%3A%2F%2Fmilkvr.com%2Fcdn%2Fassets%2FCarBee_5.1.mp4&audio_type=_5.1]
             string _videoType = "";
             if (aFormat != "")
             { _videoType = @"&video_type=" + aFormat; };
-            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A").Replace("?","%3F").Replace("=","%3D").Replace("&","%26") + _videoType;
+
+            string _audioType = "";
+            if (aAudioformat != "")
+            { _audioType = @"&audio_type=" + aAudioformat; };
+            
+
+            return @"milkvr://sideload/?url=" + aURL.Replace(@"/", "%2F").Replace(":", "%3A").Replace("?","%3F").Replace("=","%3D").Replace("&","%26") + _audioType + _videoType;
         }
         protected void ExecUri(string aURI)
         {
