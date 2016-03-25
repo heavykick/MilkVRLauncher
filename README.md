@@ -21,6 +21,8 @@ FAQ:
 
 -> Is there a "milkVR" folder on the root of your internal storrage? No? Pls. create one. The app needs this folder to create the link-files :)
 
+-> MilkVR has to be installed. If you can't find it in oculus store use VPN like Hola to download MilkVR.
+
 > I have got a NAS and emby.media is not available. But my NAS has a DLNA Server, can I use that?
 
 -> Some people did use [bubbleupnp](https://play.google.com/store/apps/details?id=com.bubblesoft.android.bubbleupnp) to browse through DLNA content.
