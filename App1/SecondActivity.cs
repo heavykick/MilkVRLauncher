@@ -15,6 +15,10 @@ namespace heavykick
     [Activity(Label = "MilkVRLauncher")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryDefault },
+        DataMimeType = "video/*")]
+
+    [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
+        Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataHost = "*",
         DataScheme = "http")]
@@ -22,7 +26,7 @@ namespace heavykick
         Categories = new[] {Intent.CategoryDefault },
         DataMimeType = "video/*",
         DataHost = "*",
-        DataScheme = "http")]
+        DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryDefault },
         DataMimeType = "video/*",
@@ -52,22 +56,22 @@ namespace heavykick
 
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = @".*\\.mp4",
+        DataPathPattern = @".*\\.mp4.*",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = @".*\\.mp4",
+        DataPathPattern = @".*\\.mp4.*",
         DataHost = "*",
         DataScheme = "https")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = @".*\\.mkv",
+        DataPathPattern = @".*\\.mkv.*",
         DataHost = "*",
         DataScheme = "http")]
     [IntentFilter(new[] { Intent.ActionView, Intent.ActionSend },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
-        DataPathPattern = @".*\\.mkv",
+        DataPathPattern = @".*\\.mkv.*",
         DataHost = "*",
         DataScheme = "https")]
 
@@ -149,6 +153,20 @@ namespace heavykick
             Url = CheckForEmby(Intent.DataString);
             button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
             lblUrl.Text = Url;
+
+
+
+            //try
+            //{
+            //    string data = new System.Net.WebClient().DownloadString(Url);
+            //    if (System.Uri.IsWellFormedUriString(data, UriKind.RelativeOrAbsolute))
+            //    {
+            //        Url = data;
+            //        lblUrl.Text = data;
+            //    };
+            //}
+            //catch
+            //{ };
 
             InitRadioButtons(LaunchExtensions, Url,"ic_", MilkVROptions);
             InitRadioButtons(AudioFormats, Url,"", AudioOptions);
