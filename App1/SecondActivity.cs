@@ -137,6 +137,8 @@ namespace heavykick
             LinkPreview = FindViewById<AutoCompleteTextView>(Resource.Id.LinkPreview);
             LinkPreview.Text = "MilkVRLauncher";
 
+
+
             lblUrl = FindViewById<TextView>(Resource.Id.lblUrl);
 
             button1 = FindViewById<Button>(Resource.Id.button1);
@@ -151,9 +153,18 @@ namespace heavykick
 
 
             Url = CheckForEmby(Intent.DataString);
-            button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);
-            lblUrl.Text = Url;
+            button1.Text =  Resources.GetText(Resource.String.ButtonStartCaption);           
 
+            try
+            {
+                string s = System.IO.Path.GetFileName(Url);
+                LinkPreview.Text = s.Remove(s.IndexOf('.'));
+            }
+            catch
+            {
+                lblUrl.Text = Url;
+            };
+            
 
 
             //try
